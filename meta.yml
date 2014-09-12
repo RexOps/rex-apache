@@ -1,0 +1,6 @@
+Name: Apache Module
+Description: A simple apache module
+Author: jan gehring <jan.gehring@gmail.com>
+License: Apache 2.0
+Require:
+  - Rex::Ext::ParamLookup
