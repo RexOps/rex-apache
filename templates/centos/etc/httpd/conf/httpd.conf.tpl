@@ -39,12 +39,12 @@ ServerRoot "/etc/httpd"
 # prevent Apache from glomming onto all bound IP addresses.
 #
 #Listen 12.34.56.78:80
-<% if(ref $httpd_listen eq "ARRAY") { %>
-<% for my $entry (@{ $httpd_listen }) { %>
+<% if(ref $listen eq "ARRAY") { %>
+<% for my $entry (@{ $listen }) { %>
 Listen <%= $entry %>
 <% } %>
 <% } else { %>
-Listen <%= $httpd_listen %>
+Listen <%= $listen %>
 <% } %>
 
 #
@@ -69,8 +69,8 @@ Include conf.modules.d/*.conf
 # It is usually good practice to create a dedicated user and group for
 # running httpd, as with most system services.
 #
-User <%= $httpd_user %>
-Group <%= $httpd_group %>
+User <%= $user %>
+Group <%= $group %>
 
 # 'Main' server configuration
 #

@@ -66,11 +66,10 @@ resource "module", make {
 
 resource "vhost", make {
   my $os            = lc operating_system;
-  my $name          = resource_name;
+  my $vhost_name    = resource_name;
   my $ensure        = param_lookup "ensure", "present";
   my $load_order    = param_lookup "order", 15;
-  my $vhost_name    = param_lookup "name";
-  my $vhost_ip      = param_lookup "bind", "*";
+  my $vhost_ip      = param_lookup "ip", "*";
   my $server_admin  = param_lookup "server_admin", 'webmaster@localhost';
   my $document_root = param_lookup "document_root", '/var/www/html';
   my $error_log     = param_lookup "error_log",
