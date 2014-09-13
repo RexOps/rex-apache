@@ -31,7 +31,7 @@ task "setup", make {
 
   pkg $package_name, ensure => present;
 
-  file "/etc/httpd/conf.d/httpd.conf",
+  file "/etc/httpd/conf/httpd.conf",
     content   => template($httpd_conf_template),
     owner     => "root",
     group     => "root",
