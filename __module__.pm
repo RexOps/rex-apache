@@ -44,6 +44,7 @@ task "setup", make {
 };
 
 resource "module", make {
+  my $os          = lc operating_system;
   my $module_name = resource_name;
 
   my $load_order = param_lookup "order",  99;
@@ -64,6 +65,7 @@ resource "module", make {
 };
 
 resource "vhost", make {
+  my $os                  = lc operating_system;
   my $name          = resource_name;
   my $ensure        = param_lookup "ensure", "present";
   my $load_order    = param_lookup "order", 15;
