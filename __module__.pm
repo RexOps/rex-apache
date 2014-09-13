@@ -82,6 +82,10 @@ resource "vhost", make {
 
   my $vhost_file = "/etc/httpd/conf.d/${load_order}-${vhost_name}.conf";
 
+  file $document_root,
+    ensure => "directory",
+    mode   => 755;
+
   file $vhost_file,
     ensure    => $ensure,
     content   => template($vhost_template),
