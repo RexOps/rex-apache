@@ -65,7 +65,7 @@ resource "module", make {
 };
 
 resource "vhost", make {
-  my $os                  = lc operating_system;
+  my $os            = lc operating_system;
   my $name          = resource_name;
   my $ensure        = param_lookup "ensure", "present";
   my $load_order    = param_lookup "order", 15;
@@ -83,7 +83,7 @@ resource "vhost", make {
 
   my $vhost_file = "/etc/httpd/conf.d/${load_order}-${vhost_name}.conf";
 
-  file $module_file,
+  file $vhost_file,
     ensure    => $ensure,
     content   => template($vhost_template),
     owner     => "root",
