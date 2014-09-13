@@ -27,7 +27,7 @@ task "setup", make {
   my $cgi_bin             = param_lookup "cgi_bin", "/var/www/cgi-bin";
   my $default_charset     = param_lookup "default_charset", "UTF-8";
   my $httpd_conf_template = param_lookup "httpd_conf_template",
-    "templates/$os/httpd/conf/httpd.conf.tpl";
+    "templates/$os/etc/httpd/conf/httpd.conf.tpl";
 
   pkg $package_name, ensure => present;
 
