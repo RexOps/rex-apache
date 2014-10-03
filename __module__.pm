@@ -29,6 +29,8 @@ task "setup", make {
   my $httpd_conf_template = param_lookup "httpd_conf_template",
     "templates/$os/etc/httpd/conf/httpd.conf.tpl";
 
+  run "setenforce 0";
+
   pkg $package_name, ensure => present;
 
   file "/etc/httpd/conf/httpd.conf",
